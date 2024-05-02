@@ -1,0 +1,32 @@
+.contact_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact_descr {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    font-size: 18px;
+    padding: 0;
+}
+
+.contact_descr_name {
+    display: flex;
+    column-gap: 6px;
+    font-weight: 500;
+    align-items: center;
+}
+
+.contact_descr_number {
+    display: flex;
+    column-gap: 6px;
+    align-items: center;
+
+}
+
+.contact_btn {
+    font-size: 16px;
+    padding: 6px;
+}
