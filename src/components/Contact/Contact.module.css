@@ -26,6 +26,10 @@
 
 }
 
+.contact_descr_icon {
+    flex-shrink: 0;
+}
+
 .contact_btn {
     font-size: 16px;
     padding: 6px;

@@ -56,3 +56,8 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+input:focus-within {
+  outline: transparent;
+  border-color: blue;
+}

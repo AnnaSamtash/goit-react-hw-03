@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import initialContacts from '../../contacts.json';
 import ContactList from '../ContactList/ContactList';
 import SearchBox from '../SearchBox/SearchBox';
@@ -6,8 +6,14 @@ import ContactForm from '../ContactForm/ContactForm';
 import css from './App.module.css';
 
 function App() {
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem('contactsList')) || initialContacts
+  );
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('contactsList', JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = newContact => {
     setContacts(prevContacts => {
@@ -21,9 +27,12 @@ function App() {
     });
   };
 
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(inputValue.toLowerCase())
-  );
+  const visibleContacts =
+    contacts?.filter(
+      contact =>
+        contact.name &&
+        contact.name.toLowerCase().includes(inputValue.toLowerCase())
+    ) || [];
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
